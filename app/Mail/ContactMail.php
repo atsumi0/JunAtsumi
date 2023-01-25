@@ -12,55 +12,38 @@ use Illuminate\Queue\SerializesModels;
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data; 
+ 
+    private $email;
+    private $title;
+    private $body;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct( $inputs )
     {
-        $this->data = $data;
+        $this->email = $inputs['email'];
+        $this->title = $inputs['title'];
+        $this->body  = $inputs['body'];
     }
 
     /**
-     * Get the message envelope.
+     * Build the message.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return $this
      */
-    public function envelope()
-    {
-        return new Envelope(
-            subject: 'Contact Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [];
-    }
     public function build()
     {
-        return $this->to('atmjun@live.jp')       // 送信先アドレス
-        ->subject('登録完了しました。')         // 件名
-        ->view('registers.register_mail')       // 本文
-        ->with(['name' => $this->data]);        // 本文に送る値
+        return $this
+            ->from('send_atmjun_server@outlook.jp')
+            ->subject('自動送信メール')
+            ->view('contact.mail')
+            ->with([
+                'email' => $this->email,
+                'title' => $this->title,
+                'body'  => $this->body,
+            ]);
     }
 }

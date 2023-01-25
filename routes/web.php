@@ -18,5 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/mail', [MailController::class,'index']);
-Route::post('/mail/{test}', [MailController::class,'send'])->name('Mail.send');
+Route::get('/contact', [App\Http\Controllers\MailController::class, 'send'])->name('contact.send');
