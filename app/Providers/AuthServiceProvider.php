@@ -2,31 +2,29 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Routing\UrlGenerator; // 追加
+// use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * The model to policy mappings for the application.
      *
-     * @return void
+     * @var array<class-string, class-string>
      */
-    public function register()
-    {
-        //
-    }
+    protected $policies = [
+        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+    ];
 
     /**
-     * Bootstrap any application services.
+     * Register any authentication / authorization services.
      *
      * @return void
      */
-    // 変更
-    public function boot(UrlGenerator $url)
+    public function boot()
     {
-        if (env('APP_ENV') == 'production') {
-            $url->forceScheme('https');
-        }
+        $this->registerPolicies();
+
+        //
     }
 }

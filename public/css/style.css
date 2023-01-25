@@ -31,8 +31,8 @@ form{
 }
 
 .p1 {
-    font-size: 12px;
-    margin-left: 1rem;
+font-size: 12px;
+margin-left: 1rem;
 }
 
 .Nav {
@@ -141,8 +141,7 @@ form{
 }
 
 .Works_item_m {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
 }
 
 .Works_item_icon {
@@ -150,7 +149,7 @@ form{
 }
 
 .Works_item_section{
-    flex: 100 1 47px;
+    flex: 1 1 475px;
     position: relative;
     text-align: left;
     padding: 1rem 2rem 1rem 0;
@@ -162,7 +161,7 @@ form{
 
 .Works_item_tweet_section{
     display: flex;
-    vertical-align: top;
+    align-items: center;
 }
 
 .icon {
@@ -294,12 +293,6 @@ form{
     margin: auto;
 }
 
-.WorkDetailBoxText{
-    background: rgba(0,0,0,.3);
-    padding: .5rem 1rem 1rem;
-    border-radius: .3rem;
-    max-width: 50%;
-}
 .DetailBox { 
     background: rgba(0,0,0,.3);
     padding: .5rem 1rem 1rem;
@@ -338,7 +331,7 @@ form{
 
 .twitter-tweet {
     width: 40% !important;
-    margin-right: auto;
+    margin-left: 5rem;
 }
 
 .DetailCenterText{

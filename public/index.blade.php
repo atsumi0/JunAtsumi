@@ -136,7 +136,7 @@
             <div class="Works_item_section">
                 <div class="DetailCenterText">
                     <h2 class="TextCenter"><span class="marker marker-animation">お問い合わせフォーム</span></h2>
-                    <form class="validationForm" action="send.php" method="post">
+                    <form method='post' class="validationForm" action="{{ url('mail') }}">
                         <p>会社名<span class="asterisk">*</span>：<br>
                             <input type="text" class="required maxlength" name="company" value="" data-maxlength="30" placeholder="会社名 / 部署名"></p>
                         <p>お名前<span class="asterisk">*</span>：<br>
